@@ -1,0 +1,49 @@
+<mat-card *ngIf="dispensary">
+  <mat-card-header>
+    <img mat-card-avatar [src]="dispensary.logoUrl" alt="logo" />
+    <mat-card-title>{{ dispensary.Name }}</mat-card-title>
+    <mat-card-subtitle
+      >{{ dispensary.City }}, {{ dispensary.Region }}</mat-card-subtitle
+    >
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>
+      {{ dispensary.Description }}
+      <img
+        width="250px"
+        class="float-end"
+        [src]="dispensary.Image"
+        alt="dispensary image"
+      />
+    </p>
+    <p>
+      <strong>Address:</strong> {{ dispensary.Address1 }}
+      {{ dispensary.Address2 ? ", " + dispensary.Address2 : "" }},
+      {{ dispensary.City }}, {{ dispensary.Region }},
+      {{ dispensary.PostalCode }}
+    </p>
+    <p><strong>Phone:</strong> {{ dispensary.Phone }}</p>
+    <p>
+      <strong>Website: </strong>
+      <a [href]="dispensary.Website" target="_blank">{{
+        dispensary.Website
+      }}</a>
+    </p>
+    <p class="d-flex align-items-center">
+      <strong>Rating:</strong>
+      <app-rating
+        [rating]="dispensary.Rating"
+        [text]="dispensary.ReviewCount"
+      ></app-rating>
+    </p>
+    <p><strong>Followers:</strong> {{ dispensary.FollowerCount }}</p>
+    <p><strong>License Number:</strong> {{ dispensary.LicenseNumber }}</p>
+
+    <app-weekly-schedule [schedule]="dispensary.Schedule"></app-weekly-schedule>
+    <app-map
+      [latitude]="location['Latitude']"
+      [longitude]="location['Longitude']"
+    ></app-map>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,14 @@
+<div class="d-flex align-items-center">
+  <ng-container *ngFor="let item of [1, 2, 3, 4, 5]; let i = index">
+    <mat-icon>
+      {{
+        item <= rating
+          ? "star"
+          : item - 1 < rating && item > rating
+          ? "star_half"
+          : "star_outline"
+      }}
+    </mat-icon>
+  </ng-container>
+  <span *ngIf="text"> from {{ text }} users.</span>
+</div>

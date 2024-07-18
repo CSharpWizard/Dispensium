@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row py-3">
+    <div
+      *ngFor="let dispensary of dispensaries"
+      class="col-xl-3 col-lg-4 col-md-6"
+    >
+      <mat-card
+        class="my-2 dispensary-card"
+        (click)="viewDetails(dispensary.Slug)"
+      >
+        <img
+          mat-card-image
+          [src]="dispensary.Image || '../../../../assets/no_image.jpg'"
+          [alt]="dispensary.Name"
+          class="mat-card-image"
+        />
+        <mat-card-content>
+          <mat-card-title>{{ dispensary.Name }}</mat-card-title>
+          <mat-card-subtitle>
+            <app-rating
+              [rating]="dispensary.Rating"
+              [text]="dispensary.ReviewCount"
+            ></app-rating>
+          </mat-card-subtitle>
+          <p>
+            {{ dispensary.Description | truncate : 75 }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

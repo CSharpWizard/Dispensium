@@ -1,0 +1,8 @@
+.mat-card-image {
+  height: 200px;
+}
+
+.dispensary-card {
+  min-height: 350px;
+  cursor: pointer;
+}
